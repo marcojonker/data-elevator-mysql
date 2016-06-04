@@ -1,6 +1,6 @@
 {
   "name": "data-elevator-mysql",
-  "version": "1.0.0-beta.0",
+  "version": "1.0.0-beta.1",
   "description": "Flexible utility for managing migrations of mysql data sources",
   "main": "elevator.js",
   "keywords": [
