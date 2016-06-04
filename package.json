@@ -1,9 +1,9 @@
 {
-  "name": "data-elevator-mongodb",
+  "name": "data-elevator-mysql",
   "version": "0.0.1",
-  "description": "Flexible utility for migration of data sources with migration status stored in mysql",
+  "description": "Flexible utility for managing migrations of mysql data sources",
   "main": "elevator.js",
-  "keywords": ["migrate", "migrations", "mysql", "data", "datasource", "database", "utility", "tool"],
+  "keywords": ["migrate", "migrations", "migrate data", "data migration", "donwgrade", "upgrade", "mysql", "data-elevator", "elevate data", "mysql migrate", "data", "datasource", "database", "utility"],
   "bugs": "https://bitbucket.org/cacadu/data-elevator-mysql/issues/",
   "license": "MIT",
   "author": "Marco Jonker",

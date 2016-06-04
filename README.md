@@ -4,12 +4,17 @@ The data elevator mysql is an easy to use and very flexible utility for migratin
 
 Storing the current migration level in a database brings advantages when a project shares its data source with multiple running instances of a project. For example when multiple developers working with one database or the project runs on multiple servers.
 
+# RELATED MODULES #
+
+* data-elevator [npm](https://www.npmjs.com/package/data-elevator), [bitbucket](https://bitbucket.org/cacadu/data-elevator/overview)) - store elevator migration levels in file or in a custom data source
+* data-elevator-mongodb ([npm](https://www.npmjs.com/package/data-elevator-mongodb), [bitbucket](https://bitbucket.org/cacadu/data-elevator-mongodb/overview)) - store elevator migration levels in mongodb out of the box
+* data-elevator-mysql [npm](https://www.npmjs.com/package/data-elevator-mysql), [bitbucket](https://bitbucket.org/cacadu/data-elevator-mysql/overview)) - store elevator migration levels in mysql out of the box
+* data-elevator-postgres ([npm](https://www.npmjs.com/package/data-elevator-postgres), [bitbucket](https://bitbucket.org/cacadu/data-elevator-postgres/overview)) - store elevator migration levels in postgres out of the box)
+
 # INSTALL #
 
 * Install the module
 ```
-#!shell
-
 npm install data-elevator-mysql
 ```
 
@@ -30,6 +35,11 @@ node ./data-elevator/elevator add --name="add phone number to users"
 4 Move the elevator up to migrate your data.
 ```
 node ./data-elevator/elevator up
+```
+
+5 Move the elevator down to downgrade your data
+```
+node ./data-elevator/elevator down --floor=3
 ```
 
 # COMMANDS #
@@ -61,7 +71,6 @@ Examples:
 A new floor file will be created in which data migrations can be implemented. It is recommended to use the '--name' parameters for easier identification of the purpose of a floor.
 
 ```
-#!shell
 Command:   'node ./<working-dir>/elevator add'
     
 Parameters:
@@ -80,7 +89,6 @@ Examples:
 Elevator will move up and perform the migrations for each floor passed by.
 
 ```
-#!shell
 Command:    'node ./<working-dir>/elevator up'
     
 Parameters:
@@ -100,7 +108,6 @@ Examples:
 Elevator will move down and perform the migrations for each floor passed by.
 
 ```
-#!shell
 Command:    'node ./<working-dir>/elevator down'
 
 Parameters:
@@ -119,7 +126,6 @@ Examples:
 Display the last action of the elevator.
 
 ```
-#!shell
 Command:    'node ./<working-dir>/elevator status'
 
 Parameters:
@@ -137,8 +143,6 @@ Examples:
 * **levelControllerConfig.tableName:** Name of the table to store the migration level in
 * **levelControllerConfig.connectionOptions:** Options used to connect to mysql see [npm mysql](https://www.npmjs.com/package/mysql) for more information
 ```
-#!javascript
-
 var config = {
     levelControllerConfig: {
        tableName: "_data_elevator",
@@ -153,7 +157,6 @@ var config = {
 When a new floor is added the file 'floor-template.js' from the working directory is used as the template. Alterations to floor template are added to new floors. The minimal template contains at least the 'onUp' and 'onDown' function.
 
 ```
-#!javascript
 module.exports = {
     /**
      * Data transformation that need to be performed when migrating the data up
@@ -180,8 +183,6 @@ module.exports = {
 The FloorWorkerParameters gives access to the current configuration, the logger and the current floor object. 
 
 ```
-#!javascript
-
 var FloorWorkerParameters = function(config, logger, floor) {
     this.config = config;
     this.floor = floor;
@@ -192,4 +193,4 @@ var FloorWorkerParameters = function(config, logger, floor) {
 
 # CUSTOM STUFF #
 
-This documentation contains only the basics about implementing a data elevator. For a more detailed documentation about the customization possibilities see the [data elevator documentation](https://www.npmjs.com/package/).
+This documentation contains only the basics about implementing a data elevator. For a more detailed documentation about the customization possibilities see the [data elevator documentation](https://www.npmjs.com/package/data-elevator).
