@@ -41,6 +41,19 @@ node ./data-elevator/elevator up
 node ./data-elevator/elevator down --floor=3
 ```
 
+# CONFIGURATION #
+
+* **levelControllerConfig.tableName:** Name of the table to store the migration level in
+* **levelControllerConfig.connectionOptions:** Options used to connect to mysql see [npm mysql](https://www.npmjs.com/package/mysql) for more information
+```
+var config = {
+    levelControllerConfig: {
+       tableName: "_data_elevator",
+       connectionOptions: {}
+    }
+}
+```
+
 # COMMANDS #
 
 Parameters explained:
@@ -134,19 +147,6 @@ Parameters:
 Examples:
     node ./data-elevator/elevator status
     node ./data-elevator/elevator status -c="./config"
-```
-
-# CONFIGURATION #
-
-* **levelControllerConfig.tableName:** Name of the table to store the migration level in
-* **levelControllerConfig.connectionOptions:** Options used to connect to mysql see [npm mysql](https://www.npmjs.com/package/mysql) for more information
-```
-var config = {
-    levelControllerConfig: {
-       tableName: "_data_elevator",
-       connectionOptions: {}
-    }
-}
 ```
 
 # FLOOR TEMPLATE #
