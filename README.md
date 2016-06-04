@@ -1,17 +1,16 @@
-# DATA ELEVATOR MONGODB #
+# DATA ELEVATOR MYSQL #
 
-The data elevator mongodb is an easy to use and very flexible utility for migrating data sources based on the NPM module [data elevator](Link URL). The only difference is that data elevator mongodb stores its current migration level in a MongoDb database.
+The data elevator mysql is an easy to use and very flexible utility for migrating data sources based on the NPM module [data elevator](https://www.npmjs.com/package/data-elevator). The only difference is that data elevator mysql stores its current migration level in a Mysql database.
 
 Storing the current migration level in a database brings advantages when a project shares its data source with multiple running instances of a project. For example when multiple developers working with one database or the project runs on multiple servers.
 
 # INSTALL #
 
-* Add the data-elevator-mongodb to packages.json
 * Install the module
 ```
 #!shell
 
-npm install
+npm install data-elevator-mysql
 ```
 
 # QUICKSTART #
@@ -20,20 +19,17 @@ Note: It is best to run commands from the root directory of you project because 
 
 1 Construct a new data elevator for the project.
 ```
-#!shell
-node ./node-modules/data-elevator-mongodb/elevator.js construct
+node ./node-modules/data-elevator-mysql construct
 ```
 2 Add a new floor.
 ```
-#!shell
-node ./data-elevator/elevator.js add --name="add phone number to users"
+node ./data-elevator/elevator add --name="add phone number to users"
 ```
 3 Enter you migration code in the generated floor file located in './data-elevator/floors/'.
 
 4 Move the elevator up to migrate your data.
 ```
-#!shell
-node ./data-elevator/elevator.js up
+node ./data-elevator/elevator up
 ```
 
 # COMMANDS #
@@ -41,8 +37,6 @@ node ./data-elevator/elevator.js up
 Parameters explained:
 
 ```
-#!shell
-
 --<parameter_name> (<alias>, <r=required, o=optional>) <description>     
 
 ```
@@ -51,16 +45,15 @@ Parameters explained:
 Construct a new data elevator in you project. In principle this command is only performed once per project.
 
 ```
-#!shell
-Command: 'node ./node-modules/data-elevator-mongodb/elevator.js construct'
+Command: 'node ./node-modules/data-elevator-mysql construct'
     
 Parameters:
     --working-dir= (-w=, o) Location to construct elevator (def=./data-elevator)
     --verbose      (-v,  o) Verbose mode
 
 Examples:
-    node ./node-modules/data-elevator-mongodb/elevator.js construct
-    node ./node-modules/data-elevator-mongodb/elevator.js construct  -c="./config"
+    node ./node-modules/data-elevator-mysql construct
+    node ./node-modules/data-elevator-mysql construct  -c="./config"
 ```
 
 ### add ###
@@ -69,7 +62,7 @@ A new floor file will be created in which data migrations can be implemented. It
 
 ```
 #!shell
-Command:   'node ./<working-dir>/elevator.js add'
+Command:   'node ./<working-dir>/elevator add'
     
 Parameters:
     --name=        (-n=, o) Custom name of the floor
@@ -78,8 +71,8 @@ Parameters:
     --verbose      (-v,  o) Verbose mode
 
 Examples:
-    node ./data-elevator/elevator.js add
-    node ./data-elevator/elevator.js add -n="migrating users" -c="./config"
+    node ./data-elevator/elevator add
+    node ./data-elevator/elevator add -n="migrating users" -c="./config"
 ```
 
 ### up ###
@@ -88,7 +81,7 @@ Elevator will move up and perform the migrations for each floor passed by.
 
 ```
 #!shell
-Command:    'node ./<working-dir>/elevator.js up'
+Command:    'node ./<working-dir>/elevator up'
     
 Parameters:
     --floor=       (-f=, o) Floor to move to, if undefined elevator moves to the top   
@@ -97,8 +90,8 @@ Parameters:
     --verbose      (-v,  o) Verbose mode
 
 Examples:
-    node ./data-elevator/elevator.js up
-    node ./data-elevator/elevator.js up -f=5 -c="./config"
+    node ./data-elevator/elevator up
+    node ./data-elevator/elevator up -f=5 -c="./config"
 
 ```
 
@@ -108,7 +101,7 @@ Elevator will move down and perform the migrations for each floor passed by.
 
 ```
 #!shell
-Command:    'node ./<working-dir>/elevator.js down'
+Command:    'node ./<working-dir>/elevator down'
 
 Parameters:
     --floor=       (-f=, r) Floor to move to
@@ -117,8 +110,8 @@ Parameters:
     --verbose      (-v,  o) Verbose mode
 
 Examples:
-    node ./data-elevator/elevator.js down -f=2
-    node ./data-elevator/elevator.js down -f=5 -c="./config"
+    node ./data-elevator/elevator down -f=2
+    node ./data-elevator/elevator down -f=5 -c="./config"
 ```
 
 ### status ###
@@ -127,7 +120,7 @@ Display the last action of the elevator.
 
 ```
 #!shell
-Command:    'node ./<working-dir>/elevator.js status'
+Command:    'node ./<working-dir>/elevator status'
 
 Parameters:
     --config-dir=  (-c=, o) Data elevator config dir (default=./data-elevator)
@@ -135,24 +128,21 @@ Parameters:
     --verbose      (-v,  o) Verbose mode
 
 Examples:
-    node ./data-elevator/elevator.js status
-    node ./data-elevator/elevator.js status -c="./config"
+    node ./data-elevator/elevator status
+    node ./data-elevator/elevator status -c="./config"
 ```
 
 # CONFIGURATION #
 
-* **levelControllerConfig.collectionName:** Name of the collection to store the migration level in
-* **levelControllerConfig.connectionOptions:** Connection options,
-* **levelControllerConfig.connectionUrl:** Url for database connection
-
+* **levelControllerConfig.tableName:** Name of the table to store the migration level in
+* **levelControllerConfig.connectionOptions:** Options used to connect to mysql see [npm mysql](https://www.npmjs.com/package/mysql) for more information
 ```
 #!javascript
 
 var config = {
     levelControllerConfig: {
-       collectionName: "_data_elevator",
-       connectionOptions: null,
-       connectionUrl: "localhost:27012/test"
+       tableName: "_data_elevator",
+       connectionOptions: {}
     }
 }
 
@@ -202,4 +192,4 @@ var FloorWorkerParameters = function(config, logger, floor) {
 
 # CUSTOM STUFF #
 
-This documentation contains only the basics about implementing a data elevator. For a more detailed documentation about the customization possibilities see the [data elevator documentation](Link URL).
+This documentation contains only the basics about implementing a data elevator. For a more detailed documentation about the customization possibilities see the [data elevator documentation](https://www.npmjs.com/package/).

@@ -20,7 +20,7 @@
   },
   "dependencies" : {
     "async": "^1.x",
-    "mysql": "*",
+    "mysql": "^2.x",
     "data-elevator": "<2.0.0"
   },
   "engines": {
