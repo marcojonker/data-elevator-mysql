@@ -58,6 +58,7 @@ Construct a new data elevator in you project. In principle this command is only 
 Command: 'node ./node-modules/data-elevator-mysql construct'
     
 Parameters:
+    --config-dir=  (-c=, o) Data elevator config dir (default=./data-elevator)
     --working-dir= (-w=, o) Location to construct elevator (def=./data-elevator)
     --verbose      (-v,  o) Verbose mode
 
