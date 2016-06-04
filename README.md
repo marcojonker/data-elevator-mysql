@@ -19,8 +19,7 @@ npm install data-elevator-mysql
 ```
 
 # QUICKSTART #
-*
-Note: It is best to run commands from the root directory of you project because the project handles directories relative to the location the process was started from.*
+*Note: It is best to run commands from the root directory of you project because the project handles directories relative to the location the process was started from.*
 
 1 Construct a new data elevator for the project.
 ```
@@ -48,7 +47,6 @@ Parameters explained:
 
 ```
 --<parameter_name> (<alias>, <r=required, o=optional>) <description>     
-
 ```
 ### construct ###
 
@@ -101,7 +99,6 @@ Parameters:
 Examples:
     node ./data-elevator/elevator up
     node ./data-elevator/elevator up -f=5 -c="./config"
-
 ```
 
 ### down ###
@@ -150,7 +147,6 @@ var config = {
        connectionOptions: {}
     }
 }
-
 ```
 
 # FLOOR TEMPLATE #
@@ -176,7 +172,6 @@ module.exports = {
         return callback(null);
     }
 }
-
 ```
 
 ### FloorWorkerParameters ###
@@ -189,7 +184,6 @@ var FloorWorkerParameters = function(config, logger, floor) {
     this.floor = floor;
     this.logger = logger;
 };
-
 ```
 
 # CUSTOM STUFF #
