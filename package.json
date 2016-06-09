@@ -1,8 +1,12 @@
 {
   "name": "data-elevator-mysql",
-  "version": "1.0.4",
+  "version": "1.1.0-beta.0",
   "description": "Flexible utility for managing migrations of mysql data sources",
   "main": "elevator.js",
+    "bin" : { 
+    "data-elevator-mysql" : "./bin/data-elevator.js" 
+  },
+
   "keywords": [
     "migrate",
     "migration",
@@ -32,13 +36,16 @@
     "package.json",
     "README.md",
     "LICENSE",
+    "CHANGELOG",
     "elevator.js",
-    "lib"
+    "lib",
+    "bin"
   ],
   "repository": {
     "type": "git",
     "url": "git@bitbucket.org:cacadu/data-elevator-mysql.git"
   },
+  "homepage" : "https://bitbucket.org/cacadu/data-elevator-mysql",
   "dependencies": {
     "async": "^1.x",
     "mysql": "^2.x",
