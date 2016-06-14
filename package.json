@@ -30,6 +30,9 @@
     "datasource",
     "database"
   ],
+  "scripts": {
+    "test": "node ./test/test.js"
+  },
   "bugs": {
     "url": "https://bitbucket.org/cacadu/data-elevator-mysql/issues/" 
   },
