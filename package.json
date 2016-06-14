@@ -1,12 +1,11 @@
 {
   "name": "data-elevator-mysql",
-  "version": "2.0.0-alpha.0",
+  "version": "2.0.0",
   "description": "Flexible utility for managing migrations of mysql data sources",
   "main": "elevator.js",
     "bin" : { 
     "data-elevator-mysql" : "./bin/data-elevator.js" 
   },
-
   "keywords": [
     "migrate",
     "migration",
@@ -26,10 +25,14 @@
     "upgrade",
     "mysql",
     "data-elevator",
+    "data-elevator-mysql",
     "elevate data",
     "datasource",
     "database"
   ],
+  "scripts": {
+    "test": "node ./test/test.js"
+  },
   "bugs": {
     "url": "https://bitbucket.org/cacadu/data-elevator-mysql/issues/" 
   },
