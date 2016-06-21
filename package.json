@@ -1,6 +1,6 @@
 {
   "name": "data-elevator-mysql",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Flexible utility for managing migrations of mysql data sources",
   "main": "elevator.js",
     "bin" : { 
@@ -34,7 +34,7 @@
     "test": "node ./test/test.js"
   },
   "bugs": {
-    "url": "https://bitbucket.org/cacadu/data-elevator-mysql/issues/" 
+    "url": "https://github.com/marcojonker/data-elevator-mysql/issues/" 
   },
   "license": "MIT",
   "author": "Marco Jonker",
@@ -50,9 +50,9 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git@bitbucket.org:cacadu/data-elevator-mysql.git"
+    "url": "https://github.com/marcojonker/data-elevator-mysql.git"
   },
-  "homepage" : "https://bitbucket.org/cacadu/data-elevator-mysql",
+  "homepage" : "https://github.com/marcojonker/data-elevator-mysql",
   "dependencies": {
     "async": "^1.x",
     "mysql": "^2.x",
