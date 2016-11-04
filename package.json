@@ -52,9 +52,9 @@
     "type": "git",
     "url": "https://github.com/marcojonker/data-elevator-mysql.git"
   },
-  "homepage" : "https://github.com/marcojonker/data-elevator-mysql",
+  "homepage" : "http://cacadu.nl/opensource",
   "dependencies": {
-    "async": "^1.x",
+    "async": "^2.x",
     "mysql": "^2.x",
     "data-elevator": "^2.x"
   },
