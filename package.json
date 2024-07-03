@@ -1,6 +1,6 @@
 {
   "name": "data-elevator-mysql",
-  "version": "4.0.0",
+  "version": "5.0.1",
   "description": "Flexible utility for managing migrations of mysql data sources",
   "main": "elevator.js",
   "bin": {
@@ -55,9 +55,9 @@
   },
   "homepage": "http://www.cacadu.nl/opensource",
   "dependencies": {
-    "mysql": "^2.18.1",
+    "mysql2": "^3.10.2",
     "async": "^3.2.1",
-    "data-elevator": "^4.0.0"
+    "data-elevator": "^5.0.1"
   },
   "devDependencies": {
     "eslint": "^7.32.0",
