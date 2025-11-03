@@ -17,7 +17,7 @@ jobs:
     strategy:
       matrix:
         node-version: [18.x]
-        mysql-version: ['8.0']
+        mysql-version: ['5.0', '8.0']
 
     container: node:18-bullseye
 
